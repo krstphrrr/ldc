@@ -1,0 +1,463 @@
+html, body {
+  height: 100%;
+}
+
+#headerControls {
+  background: #4d5980;
+  background: linear-gradient(#56638f, #434d70);
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 37px;
+  display: block;
+  color: #b3d9ff;
+  padding: 1px 9px;
+  border-bottom: solid 1px black;
+  z-index: 1000;
+}
+
+#mapTools .fa {
+  font-size: 1em;
+}
+
+.cl_select {
+  background: white;
+  border-radius: 4px;
+  padding: 3px;
+  border: 1px solid #666666;
+  color: #666666;
+  font-size: 13px;
+  background: lightgray;
+  background: linear-gradient(#f2f2f2, #cccccc);
+  height: 25px;
+  cursor: pointer;
+}
+
+.cl_select:hover {
+  border-color: black;
+  color: black;
+}
+
+.layerList {
+  display: inline-block;
+  float: left;
+  margin: 2px 5px;
+  padding: 3px 1px;
+}
+
+.layerList span {
+  opacity: 1;
+}
+
+.layerListDropdown {
+  display: inline-block;
+  position: absolute;
+  background: white;
+  border: 1px gray solid;
+  border-radius: 0px 0px 4px 4px;
+  color: #666666;
+  font-size: 13px;
+  z-index: 2000;
+  display: none;
+}
+
+.layerName {
+  padding: 0px 5px;
+}
+
+.layerName:hover {
+  color: black;
+  background: #f2f2f2;
+  cursor: pointer;
+  border-radius: 0px 0px 4px 4px;
+}
+
+#baselayerList {
+  width: 155px;
+  margin-left: 0px;
+}
+
+#baselayerListDropdown {
+  width: 155px;
+}
+
+#overlayList {
+  width: 160px;
+}
+
+#overlayListDropdown {
+  width: 160px;
+  max-height: 526px;
+  overflow-y: auto;
+}
+
+#bingGeoLocate {
+  //display: none;
+  margin-top: 5px;
+}
+
+#bingGeocoderInput {
+  border-radius: 4px;
+  border: 1px solid gray;
+  padding: 2px 5px;
+  height: 25px;
+  position: relative;
+  top: 2px;
+  width: 174px;
+}
+
+#bingGeocoderSubmit {
+  margin-left: 0px;
+  height: 25px;
+  border: 1px solid lightgray;
+  background: #00ff00;
+  background: linear-gradient(#00ff00, #008000);
+  color: #003300;
+  opacity: 1;
+  text-shadow: 0px 1px white;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+#bingGeocoderSubmit.fa-times {
+  background":"#ff0040;
+  background: linear-gradient(rgb(255, 0, 64), rgb(179, 0, 45));
+  color: rgb(153, 0, 0);
+}
+
+#bingGeocoderSubmit:hover {
+  border-color: white;
+}
+
+#bingGeocoderInput:hover {
+  color: black;
+  border-color: black;
+}
+
+#panelTools {
+  //width: 240px;
+  height: 34px;
+  display: inline-block;
+  float: left;
+}
+
+.hcPanelDivs {
+  float: left;
+  border-left: 1px solid #262c40;
+  position: relative;
+  top: -3px;
+  //height: 40px;
+  padding: 7px 2px 5px 2px;
+  cursor: pointer;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.hcPanelDivs:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.hcPanelDivs>span, .hcPanelDivs>a>span {
+  font-size: 1.4em;
+  opacity: 1;
+  margin-left: 5px;
+  margin-right: 5px;
+  top: 5px;
+  color: #b3d9ff;
+}
+
+.hcPanelDivs>p, .hcPanelDivs>a>p {
+  display: inline-block;
+  margin: 4px 5px 0px 5px;
+  font-size: 14px;
+  font-weight: bold;
+  //position: relative;
+  //top: 1px;
+  color: #b3d9ff;
+}
+
+#map {
+  height: 100%;
+  background: white;
+  cursor: default;
+}
+
+#map.leaflet-drag-target {
+  cursor: grabbing;
+}
+
+#info {
+  border: 1px solid #333333;
+  border-radius: 0 0 4px 4px;
+  background: white;
+}
+
+#infoP {
+  display: inline-block;
+  margin:0;
+  white-space: pre;
+  color: black;
+  margin: 5px;
+}
+
+.legend {
+  position: absolute;
+  top: 55px;
+  left: 20px;
+  z-index: 400;
+  cursor: move;
+  background: steelblue;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  border: 1px solid #333333;
+  border-radius: 4px;
+  display: none;
+  opacity: 0;
+}
+
+#infoDiv {
+  //bottom: 20px;
+  top: calc(100% - 100px);
+}
+
+#locateDiv {
+  top: 35px;
+  left: 300px;
+}
+
+
+.exitDiv {
+  text-align: right;
+  float: right;
+  height: 100%;
+}
+
+#legendDiv {
+  position: absolute;
+  top: 40px;
+  left: calc(100% - 250px);
+  //right: 20px;
+  width: auto;
+  min-width: 169px;
+  margin: 0px;
+  z-index: 1002;
+  border-radius: 4px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+  display: none;
+  opacity: 0;
+  border: 1px solid black;
+}
+
+.legTitle {
+  color: white;
+  padding: 0 5px;
+  height: 30px;
+  background: #4d5980;
+  background: linear-gradient(#56638f, #434d70);
+  border-radius: 4px 4px 0px 0px;
+  margin: 0px;
+  font-size: 1.4em;
+}
+
+.legTitle:hover {
+  //background: rgba(0,0,255,0.5)
+}
+
+.legendTitle {
+  margin: 20px 5px 5px 5px;
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+#legendDefault {
+  font-style: italic;
+  padding: 5px;
+  background: white;
+  border-radius: 0px 0px 4px 4px;
+  font-size: 13px;
+  color: black;
+}
+
+#legendImgDiv {
+  display: none;
+  text-align: center;
+  padding: 0px 5px 5px 5px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+#legendPrev, #legendNext {
+  margin: 0px;
+  visibility: hidden;
+  font-size: 1.4em;
+}
+
+.legImgDiv {
+  overflow: auto;
+  margin: auto;
+  border: 1px solid black;
+  border-radius: 4px;
+  background: white;
+  max-height: 335px;
+}
+
+.legendImg {
+  //border: 1px solid #333333;
+  display: block;
+  margin: auto;
+  //border-radius: 4px;
+  position: relative;
+}
+
+.legendTitle {
+  margin: 20px 5px 5px 5px;
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+.legendTrans {
+  font-size: 13px;
+  color: #333333;
+  display: block;
+  margin: 0px 5px;
+}
+
+.layerTitle {
+  margin: 0px 2px 7px 2px;
+  font-weight: bold;
+  display: inline-block;
+  font-size: 1em;
+}
+
+.fa {
+  margin-left: 15px;
+  cursor: pointer;
+  font-size: 0.8em;
+  opacity: 0.8;
+}
+
+.fa:hover {
+  opacity: 1;
+}
+
+input[type=range] {
+  height: 12px;
+  -webkit-appearance: none;
+  margin: 10px 0px 0px 0px;
+  width: 162px;
+  display: inline-block;
+  background: none;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
+  webkit-box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
+  background: #ff9900; /* For browsers that do not support gradients */
+  background: linear-gradient(to left, #ffffcc, #ff9900); /* Standard syntax */
+  border-radius: 5px;
+  border: 0px solid #000000;
+}
+input[type=range]:hover::-webkit-slider-runnable-track {
+  background: orange; /* For browsers that do not support gradients */
+  background: linear-gradient(to left, #ffffcc, #ff9900); /* Standard syntax */
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
+  webkit-box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
+  border: 1px solid #808080;
+  height: 18px;
+  width: 18px;
+  border-radius: 12px;
+  background: #FFFFFF;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -4.5px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #ff9900; /* For browsers that do not support gradients */
+  background: linear-gradient(to left, #ffffcc, #ff9900); /* Standard syntax */
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
+  webkit-box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
+  background: lightgray; /* For browsers that do not support gradients */
+  background: lightgray; /* Standard syntax */
+  border-radius: 5px;
+  border: 0px solid #000000;
+}
+input[type=range]::-moz-range-progress {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
+  webkit-box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
+  background: #ff9900; /* For browsers that do not support gradients */
+  background: linear-gradient(to left, #ffffcc, #ff9900); /* Standard syntax */
+  border-radius: 5px;
+  border: 0px solid #000000;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
+  webkit-box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
+  border: 1px solid #808080;
+  height: 18px;
+  width: 18px;
+  border-radius: 12px;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #ff9900; /* For browsers that do not support gradients */
+  background: linear-gradient(to left, #ffffcc, #ff9900); /* Standard syntax */
+  border: 0px solid #000000;
+  border-radius: 10px;
+  box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
+  webkit-box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
+}
+input[type=range]::-ms-fill-upper {
+  background: lightgray;
+  border: 0px solid #000000;
+  border-radius: 10px;
+  box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
+  webkit-box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
+}
+input[type=range]::-ms-thumb {
+  margin-top: 1px;
+  box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
+  webkit-box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
+  border: 1px solid #808080;
+  height: 18px;
+  width: 18px;
+  border-radius: 12px;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #ff9900; /* For browsers that do not support gradients */
+  background: linear-gradient(to left, #ffffcc, #ff9900); /* Standard syntax */
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: lightgray;
+}
