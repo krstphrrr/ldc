@@ -3,23 +3,30 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Landscape Data Commons">
 
     <title>Landscape Data Commons</title>
     <link rel="icon" type="image/png" href="images/JERfavicon.png">
 
     <!-- Scripts -->
+    <script src="https://landscapedatacommons.org/socket.io/socket.io.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBk-pRMxjeu0G6yIfxqnZMPQE5LgLLB6P8"></script>
     <script src="js/d3.v5.min.js"></script>
-    <!--script src="js/crossfilter.1.4.7.min.js"></script-->
+    <script src="js/topojson.3.0.2.min.js"></script>
+    <script src="js/turf.5.1.6.min.js"></script>
+    <script src="js/crossfilter.1.4.7.min.js"></script>
     <!--script src="js/dc.3.1.0.min.js"></script-->
     <script src="js/jquery.3.4.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery-ui-touch-punch.0.0.3.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.4.3.1.min.js"></script>
     <script src="js/leaflet.1.5.1.js"></script>
     <script src="js/L.Control.MousePosition.js"></script>
     <script src="js/Control.BingGeocoder.js"></script>
     <script src="js/ldc.js"></script>
+    <script src="js/socket_emit.js"></script>
+    <noscript>Your browser does not support JavaScript!</noscript>
 
     <!-- Stylesheets -->
     <!--link rel="stylesheet" href="css/dc.3.1.0.min.css"/-->
@@ -29,11 +36,16 @@
     <link rel="stylesheet" href="css/jquery-ui.min.css"/>
     <link rel="stylesheet" href="css/L.Control.MousePosition.css"/>
     <link rel="stylesheet" href="css/Control.BingGeocoder.css"/>
-    <link rel="stylesheet" href="css/ldc.css"/>
-    <!--link rel="stylesheet" media="screen and (min-width: 800px)" href="css/data_cat_wide.css"/-->
-    <!--link rel="stylesheet" media="screen and (max-width: 799px)" href="css/data_cat_narrow.css"/-->
+    <!--link rel="stylesheet" href="css/ldc.css"/-->
+    <link rel="stylesheet" media="screen and (min-width: 520px)" href="css/ldc.css"/>
+    <link rel="stylesheet" media="screen and (max-width: 519px)" href="css/ldc_narrow.css"/>
   </head>  
   <body onload="initPage()">
     <div id="map"></div>
+
+    <script type="text/javascript">
+      socket_emit();
+    </script>
+
   </body>
 </html>

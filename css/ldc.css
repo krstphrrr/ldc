@@ -1,5 +1,50 @@
+html {
+  overflow: hidden;
+}
+
 html, body {
   height: 100%;
+  //min-height: 700px;
+}
+
+.leaflet-pane > svg path {
+  pointer-events: all;
+}
+
+.activeTopo.disabled {
+  pointer-events: none;
+}
+
+.activeTopo {
+  stroke-opacity: 0;
+  fill-opacity: 0;
+  cursor: pointer;
+}
+
+.activeTopo.svgHover, .activeTopo_geoInd.svgHover {
+  fill: fuchsia;
+  fill-opacity: 0.5;
+  stroke: yellow !important;
+  stroke-width: 1.5 !important;
+  stroke-opacity: 1;
+}
+
+.activeTopo.svgSelected {
+  fill: teal;
+  fill-opacity: 0.4;
+  stroke: navy;
+  stroke-width: 2.5;
+  stroke-opacity: 1;
+}
+
+.activeTopo.svgSelected:hover, .activeTopo.svgSelected.hover {
+  fill: gold;
+}
+
+.activeTopo_geoInd.hover {
+  stroke: crimson !important;
+  fill: yellow !important;
+  stroke-width: 2;
 }
 
 #headerControls {
@@ -14,7 +59,7 @@ html, body {
   color: #b3d9ff;
   padding: 1px 9px;
   border-bottom: solid 1px black;
-  z-index: 1000;
+  //z-index: 1005;
 }
 
 #mapTools .fa {
@@ -104,7 +149,7 @@ html, body {
   height: 25px;
   position: relative;
   top: 2px;
-  width: 174px;
+  width: 162px;
 }
 
 #bingGeocoderSubmit {
@@ -144,11 +189,11 @@ html, body {
 
 .hcPanelDivs {
   float: left;
-  border-left: 1px solid #262c40;
+  //border-left: 1px solid #262c40;
   position: relative;
   top: -3px;
   //height: 40px;
-  padding: 7px 2px 5px 2px;
+  padding: 7px 3px 5px 3px;
   cursor: pointer;
   margin-left: 0px;
   margin-right: 0px;
@@ -156,6 +201,22 @@ html, body {
 
 .hcPanelDivs:hover {
   background: rgba(255,255,255,0.2);
+}
+
+.hcPanelDivs.disabled {
+  background: rgba(204,0,0,0.5);
+}
+
+.hcPanelDivs.disabled:hover {
+  background: rgba(204,0,0,0.9);
+}
+
+.hcPanelDivs.enabled {
+  background: rgba(0,153,0,0.5);
+}
+
+.hcPanelDivs.enabled:hover {
+  background: rgba(0,153,0,0.9);
 }
 
 .hcPanelDivs>span, .hcPanelDivs>a>span {
@@ -177,10 +238,72 @@ html, body {
   color: #b3d9ff;
 }
 
+#secureDiv {
+  float: right;
+}
+
+#loginModal .modal-dialog {
+  width: max-content;
+}
+
+#loginClose {
+  color: red;
+  opacity: 0.5;
+  font-size: 1.5rem;
+  float: right;
+  padding: 15px;
+  pointer-events: all;
+}
+
+#loginClose:hover {
+  opacity: 1;
+}
+
+#loginDiv {
+  background: white;
+  border: 4px solid skyblue;
+  border-radius: 4px;
+  padding: 15px;
+  text-align: center;
+}
+
+#loginDiv input {
+  margin-bottom: 10px;
+  pointer-events: all;
+}
+
+#loginBut {
+  pointer-events: all;
+}
+
+#loginBut span {
+  color: limegreen;
+  opacity: 1;
+  font-size: 1.3rem;
+  margin-right: 5px;
+  margin-left: 0;
+  position: relative;
+  top: 2px;
+}
+
+#loginErr {
+  color: red;
+  display: none;
+  margin: 0;
+}
+
+#registerP, #registerP a {
+  margin: 0;
+  margin-top: 5px;
+  pointer-events: all;
+}
+
 #map {
-  height: 100%;
+  height: calc(100% - 37px);
   background: white;
   cursor: default;
+  position: relative;
+  top: 37px;
 }
 
 #map.leaflet-drag-target {
@@ -217,16 +340,223 @@ html, body {
   opacity: 0;
 }
 
+#pointDiv {
+  z-index: 1005;
+  //opacity: 1;
+  //background: white;
+  color: #333333;
+}
+
+#pointAttrTable {
+  border-collapse: collapse;
+}
+
+#pointAttrTable th {
+  background: cornflowerblue;
+  color: white;
+  font-weight: bold;
+}
+
+#pointAttrTable td {
+  background: white;
+  font-weight: normal;
+}
+
+#pointAttrTable th, #pointAttrTable td {
+  border: 1px solid #333333;
+  padding: 2px 5px;
+  font-size: 0.8rem;
+}
+
 #infoDiv {
   //bottom: 20px;
   top: calc(100% - 100px);
 }
 
-#locateDiv {
-  top: 35px;
-  left: 300px;
+#downloadDiv {
+  top: 40px;
+  left: calc(100% - 500px);
+  min-width: 190px;
 }
 
+#download {
+  color: #333333;
+  background: white;
+  padding: 5px;
+}
+
+#download p {
+  margin-bottom: 5px;
+}
+
+#downloadSelect {
+  margin-bottom: 8px;
+}
+
+#downloadChkDiv {
+  margin-left: 15%;
+  text-align: left;
+}
+
+.downloadChk {
+  position: relative;
+  top: 2px;
+  margin-right: 3px;
+}
+
+#downloadGif {
+  display: block;
+}
+
+#downloadGif.disabled {
+  display: none;
+}
+
+.linkDiv {
+  background: lightcyan;
+  margin: 5px;
+  border: 1px solid #333333;
+  border-radius: 4px;
+  text-align: left;
+  padding: 0 5px;
+}
+
+.linkDiv p {
+  display: inline-block;
+}
+
+.linkDiv span {
+  font-size: 1.2rem;
+  position: relative;
+  top: 5px;
+  float: right;
+  margin-right: 5px;
+}
+
+#locateDiv {
+  top: 40px;
+  left: 310px;
+}
+
+#filterDiv {
+  top: 40px;
+  left: 10px;
+}
+
+#filter {
+  background: white;
+  padding: 5px;
+  color: #333333;
+  min-width: 235px;
+}
+
+#filter hr, #download hr {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.filterHeader {
+  background: steelblue;
+  border-radius: 4px;
+  padding: 2px;
+  color: white;
+  font-weight: bold;
+}
+
+#spatialFilterCB {
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+#spatialFilterCBLabel {
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+#spatialFilterSelect.disabled, #valFilterSelect.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.ldcButton {
+  color: white;
+  display: block;
+  width: 100%;
+  margin: 0;
+  border: 2px solid #333333;
+  border-radius: 4px;
+  font-weight: bold;
+  box-shadow: 0px 0px 4px 1px #666666 inset;
+  text-shadow: 1px 2px 2px #333333;
+  background: lightgreen;
+  cursor: pointer;
+}
+
+.ldcButton:hover {
+  background: lime;
+  border-color: aqua;
+}
+
+.ldcButton:active {
+  box-shadow: 0px 0px 4px 1px white;
+  background: #189a18;
+  border-color: maroon;
+}
+
+#spatialFilterClear {
+  display: none;
+}
+
+#catFilterSelect, #valFilterSelect {
+  margin-left: 5px;
+}
+
+#filterCntDiv {
+  background: steelblue;
+  border: 1px solid #333333;
+  border-radius: 4px;
+  color: white;
+}
+
+#filterCntDiv p {
+  margin: 0;
+}
+
+#filterCnt {
+  color: lime;
+  font-weight: bold;
+}
+
+#totalCnt {
+  color: aqua;
+  font-weight: bold;
+}
+
+#filterCondDiv {
+  overflow-y: auto;
+  max-height: 218px;
+}
+
+#filterCondDiv div {
+  padding: 0px 4px;
+  border: 1px solid #333333;
+  border-radius: 4px;
+  background: lightcyan;
+  margin-bottom: 5px;
+}
+
+#filterCondDiv p {
+  margin-bottom: 0;
+  text-align: left;
+}
+
+#filterCondDiv span {
+  color: red;
+  font-size: 1rem;
+  float: right;
+  position: relative;
+  top: 4px;
+}
 
 .exitDiv {
   text-align: right;
@@ -238,9 +568,8 @@ html, body {
   position: absolute;
   top: 40px;
   left: calc(100% - 250px);
-  //right: 20px;
   width: auto;
-  min-width: 169px;
+  min-width: 225px;
   margin: 0px;
   z-index: 1002;
   border-radius: 4px;
@@ -248,6 +577,13 @@ html, body {
   display: none;
   opacity: 0;
   border: 1px solid black;
+}
+
+.layerLegend {
+  border-bottom: 1px solid #333333;
+  border-top: 1px solid #333333;
+  position: sticky;
+  top: 0;
 }
 
 .legTitle {
@@ -259,16 +595,16 @@ html, body {
   border-radius: 4px 4px 0px 0px;
   margin: 0px;
   font-size: 1.4em;
-}
-
-.legTitle:hover {
-  //background: rgba(0,0,255,0.5)
+  text-align: left;
 }
 
 .legendTitle {
-  margin: 20px 5px 5px 5px;
+  //margin: 20px 5px 5px 5px;
   font-size: 18px;
   white-space: nowrap;
+  text-align: left;
+  padding: 5px;
+  background: lightskyblue;
 }
 
 #legendDefault {
@@ -283,15 +619,18 @@ html, body {
 #legendImgDiv {
   display: none;
   text-align: center;
-  padding: 0px 5px 5px 5px;
-  overflow: hidden;
-  margin-top: 5px;
+  max-height: 575px;
+  overflow: auto;
 }
 
-#legendPrev, #legendNext {
-  margin: 0px;
-  visibility: hidden;
-  font-size: 1.4em;
+.collapse {
+  padding: 5px;
+  background: radial-gradient(black, steelblue);
+}
+
+#legendImgDiv h6 {
+  margin: 0;
+  display: inline-block;
 }
 
 .legImgDiv {
@@ -304,17 +643,9 @@ html, body {
 }
 
 .legendImg {
-  //border: 1px solid #333333;
   display: block;
   margin: auto;
-  //border-radius: 4px;
   position: relative;
-}
-
-.legendTitle {
-  margin: 20px 5px 5px 5px;
-  font-size: 18px;
-  white-space: nowrap;
 }
 
 .legendTrans {
@@ -331,6 +662,34 @@ html, body {
   font-size: 1em;
 }
 
+.ui-slider.ui-widget {
+  width: 80%;
+  height: 10px;
+  cursor: pointer;
+  box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
+  background: #ff9900; /* For browsers that do not support gradients */
+  background: linear-gradient(to left, #ffffcc, #ff9900); /* Standard syntax */
+  border-radius: 5px;
+  border: 0px solid #000000;
+  margin: 10px auto 5px;
+}
+
+.ui-slider-handle.ui-state-default {
+  box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
+  border: 1px solid #808080;
+  border-radius: 12px;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+
+.ui-slider-handle.ui-state-default:focus {
+  outline: none;
+}
+
+.ui-slider-handle.ui-state-default:active {
+  background: radial-gradient(white, lime); 
+}
+
 .fa {
   margin-left: 15px;
   cursor: pointer;
@@ -342,122 +701,29 @@ html, body {
   opacity: 1;
 }
 
-input[type=range] {
-  height: 12px;
-  -webkit-appearance: none;
-  margin: 10px 0px 0px 0px;
-  width: 162px;
-  display: inline-block;
-  background: none;
+.tooltip {
+  z-index: 3000;
 }
-input[type=range]:focus {
-  outline: none;
+
+.tooltip-inner {
+  //max-width: 200px;
+  //width: 200px;
+  text-shadow: none;
 }
-input[type=range]::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 10px;
-  cursor: pointer;
-  animate: 0.2s;
-  box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
-  webkit-box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
-  background: #ff9900; /* For browsers that do not support gradients */
-  background: linear-gradient(to left, #ffffcc, #ff9900); /* Standard syntax */
-  border-radius: 5px;
-  border: 0px solid #000000;
-}
-input[type=range]:hover::-webkit-slider-runnable-track {
-  background: orange; /* For browsers that do not support gradients */
-  background: linear-gradient(to left, #ffffcc, #ff9900); /* Standard syntax */
-}
-input[type=range]::-webkit-slider-thumb {
-  box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
-  webkit-box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
-  border: 1px solid #808080;
-  height: 18px;
-  width: 18px;
-  border-radius: 12px;
-  background: #FFFFFF;
-  cursor: pointer;
-  -webkit-appearance: none;
-  margin-top: -4.5px;
-}
-input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #ff9900; /* For browsers that do not support gradients */
-  background: linear-gradient(to left, #ffffcc, #ff9900); /* Standard syntax */
-}
-input[type=range]::-moz-range-track {
-  width: 100%;
-  height: 10px;
-  cursor: pointer;
-  animate: 0.2s;
-  box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
-  webkit-box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
-  background: lightgray; /* For browsers that do not support gradients */
-  background: lightgray; /* Standard syntax */
-  border-radius: 5px;
-  border: 0px solid #000000;
-}
-input[type=range]::-moz-range-progress {
-  width: 100%;
-  height: 10px;
-  cursor: pointer;
-  animate: 0.2s;
-  box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
-  webkit-box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
-  background: #ff9900; /* For browsers that do not support gradients */
-  background: linear-gradient(to left, #ffffcc, #ff9900); /* Standard syntax */
-  border-radius: 5px;
-  border: 0px solid #000000;
-}
-input[type=range]::-moz-range-thumb {
-  box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
-  webkit-box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
-  border: 1px solid #808080;
-  height: 18px;
-  width: 18px;
-  border-radius: 12px;
-  background: #FFFFFF;
-  cursor: pointer;
-}
-input[type=range]::-ms-track {
-  width: 100%;
-  height: 10px;
-  cursor: pointer;
-  animate: 0.2s;
-  background: transparent;
-  border-color: transparent;
-  color: transparent;
-}
-input[type=range]::-ms-fill-lower {
-  background: #ff9900; /* For browsers that do not support gradients */
-  background: linear-gradient(to left, #ffffcc, #ff9900); /* Standard syntax */
-  border: 0px solid #000000;
-  border-radius: 10px;
-  box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
-  webkit-box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
-}
-input[type=range]::-ms-fill-upper {
-  background: lightgray;
-  border: 0px solid #000000;
-  border-radius: 10px;
-  box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
-  webkit-box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
-}
-input[type=range]::-ms-thumb {
-  margin-top: 1px;
-  box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
-  webkit-box-shadow: inset 0px 3px 5px rgba(0,0,0,0.3);
-  border: 1px solid #808080;
-  height: 18px;
-  width: 18px;
-  border-radius: 12px;
-  background: #FFFFFF;
-  cursor: pointer;
-}
-input[type=range]:focus::-ms-fill-lower {
-  background: #ff9900; /* For browsers that do not support gradients */
-  background: linear-gradient(to left, #ffffcc, #ff9900); /* Standard syntax */
-}
-input[type=range]:focus::-ms-fill-upper {
-  background: lightgray;
+
+.d3Tooltip {
+  background: rgba(0,0,0,0.7);
+  border-style: solid;
+  border-color: white;
+  border-width: 2px;
+  border-radius: 4px;
+  color: yellow;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 7px;
+  position: absolute;
+  z-index: 3000;
+  visibility: hidden;
+  white-space: nowrap;
 }
