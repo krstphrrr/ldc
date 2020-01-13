@@ -7,6 +7,7 @@ function initPage() {
 
   //******Call function to reposition windows on resize
   window.addEventListener('resize', resizePanels);
+  // test2
 
 
 
