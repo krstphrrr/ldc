@@ -495,7 +495,7 @@ function initPage() {
     //topos["tl_2017_us_state_wgs84"].unfiltered = JSON.parse(JSON.stringify(topos["tl_2017_us_state_wgs84"].topo)); //***Makes a deep copy
     //addTopo(topos.tl_2017_us_state_wgs84);
   });
-/*
+
   //***Counties
   d3.json("gis/counties_qgis_mapshaper.json").then(function(data) {
     console.timeEnd("counties");
@@ -527,7 +527,7 @@ function initPage() {
     //topos["wbdhu8_wgs84"].unfiltered = JSON.parse(JSON.stringify(topos["wbdhu8_wgs84"].topo)); //***Makes a deep copy
     //addTopo(topos.wbdhu8_wgs84);
   });
-*/
+
 
   //******Filter current features select layer by map bounding box
   function polyOverlap(tmpLayer) {
