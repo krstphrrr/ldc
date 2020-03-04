@@ -8,12 +8,14 @@ var bcrypt = require('bcrypt');
 // test 5
 const { Pool } = require("pg");
 
-app.get("/", function(req, res) {
+app.get("/old", function(req, res) {
   res.send('<h1>Landscape Data Commons</h1><p style="color:blue;">Listening for queries...</p>');
 });
 
 io.on("connection", function(socket) {
+
   console.log("a user connected");
+
 
   socket.on("disconnect", function() {
     console.log("user disconnected");
