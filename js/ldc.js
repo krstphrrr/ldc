@@ -55,6 +55,7 @@ function initPage() {
     topos.geoIndicators.unfiltered.features.forEach(function(d) { if(d3.polygonContains(tmpPoly, d.geometry.coordinates) == true) { topos.geoIndicators.topo.features.push(d); } });
     addTopo(topos.geoIndicators);
     for(obj in topos.geoIndicators.cf.filters) {
+     
       if(obj != "type" && obj != "geoIndicators") {
         if(topos.geoIndicators.cf.filters.type[obj] == "categorical") {
           catFilter(obj);
