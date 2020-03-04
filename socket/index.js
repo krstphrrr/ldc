@@ -14,7 +14,7 @@ app.get("/old", function(req, res) {
 
 io.on("connection", function(socket) {
 
-  console.log("a user connected");
+  console.log("change #1");
 
 
   socket.on("disconnect", function() {
