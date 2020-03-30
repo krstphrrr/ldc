@@ -9,7 +9,7 @@ var bcrypt = require('bcrypt');
 const { Pool } = require("pg");
 
 app.get("/", function(req, res) {
-  res.send('<h1>Landscape Data Commons</h1><p style="color:blue;">Listening for queries...</p>');
+  res.send('<h1>Landscape Data Commons</h1><p style="color:blue;">Listening for queries...test6</p>');
 });
 
 io.on("connection", function(socket) {
@@ -349,7 +349,7 @@ io.on("connection", function(socket) {
 
 
   socket.on("getLayers", function(tmpData) {
-    console.log("Getting layers...test6");
+    console.log("Getting layers...");
    
     var tmpQueries = [];
     tmpData.tmpLayers.forEach(function(layer, i) {
