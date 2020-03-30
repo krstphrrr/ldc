@@ -1,6 +1,6 @@
 var app = require("express")();
 // var http = require("http").createServer(app);
-var io = require("socket.io")(http);
+// var io = require("socket.io")(http);
 var topojson = require("topojson-server");
 var topoSimp = require("topojson-simplify");
 var async = require('async');
