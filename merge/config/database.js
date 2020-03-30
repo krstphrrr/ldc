@@ -2,7 +2,7 @@
 // const str = conf.connStr();
 const Sequelize = require('sequelize');
 
-module.exports = new Sequelize(process.env.DB_STR, {
+module.exports = new Sequelize(process.env.DBSTR, {
     dialect: 'postgres',
     operatorsAliases: 0,
 
