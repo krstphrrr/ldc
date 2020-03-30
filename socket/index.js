@@ -5,7 +5,7 @@ var topojson = require("topojson-server");
 var topoSimp = require("topojson-simplify");
 var async = require('async');
 var bcrypt = require('bcrypt');
-// test 5
+// test 6
 const { Pool } = require("pg");
 
 app.get("/", function(req, res) {
@@ -349,7 +349,7 @@ io.on("connection", function(socket) {
 
 
   socket.on("getLayers", function(tmpData) {
-    console.log("Getting layers...");
+    console.log("Getting layers...test6");
    
     var tmpQueries = [];
     tmpData.tmpLayers.forEach(function(layer, i) {
